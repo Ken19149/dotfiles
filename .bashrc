@@ -25,8 +25,6 @@ alias qwerty='systemctl stop keyd.service'
 
 alias rpi-imager='xhost + && DISPLAY=:0 sudo rpi-imager'
 
-alias server='ssh ken@console.omniscientlab.dev'
-
 alias hyprlock='hyprlock && hyprctl reload && hyprctl reload'
 
 alias upgrade-all="yay -Syu && hyprpm update && nvim --headless '+Lazy! sync' +qa"
