@@ -8,24 +8,24 @@ local function load_cinnamoroll()
     -- Name your masterpiece
     vim.g.colors_name = "cinnamoroll"
 
-    -- 2. The Expanded Luminous Palette
+    -- 2. The Softer Cinnamoroll Palette
     local c = {
         none          = "NONE",
-        white         = "#FFFFFF",
-        fg            = "#F0F8FF", -- Bright Alice Blue for standard text
+        white         = "#E0E8F5", -- Softened from pure white
+        fg            = "#B5C1DD", -- Cloudy pastel blue/grey for standard text (Eliminates eye strain)
         
         -- Blues
-        blue_light    = "#D0E8F9", -- Soft pastel baby blue
-        blue_bright   = "#6AC2F0", -- Saturated sky blue for high-visibility elements
+        blue_light    = "#BCE4F9", -- Soft pastel baby blue
+        blue_bright   = "#6AC2F0", -- Saturated sky blue
         
         -- Pinks
         pink_light    = "#FAD1EA", -- Soft sakura pastel
-        pink_bright   = "#F593C4", -- Saturated candy pink for accents
+        pink_bright   = "#F593C4", -- Saturated candy pink
         
-        -- Structural Colors
-        muted         = "#A9BDE0", -- Bright pastel periwinkle (No more dark grey!)
+        -- Structural
+        muted         = "#8298B8", -- Lighter, softer periwinkle (No dark grey!)
         visual_bg     = "#BCE4F9", -- Bright baby blue text selection
-        visual_fg     = "#1A1B26", -- Dark text inside the selection for perfect contrast
+        visual_fg     = "#1A1B26", -- Dark text inside the selection for readability
     }
 
     -- 3. Apply the Colors

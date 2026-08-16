@@ -59,7 +59,7 @@ copy-on-select = clipboard
 
 # Core Background / Foreground
 background = 1a1b26
-foreground = ffffff
+foreground = b5c1dd
 
 # Cursor
 cursor-color = ffb8d2
