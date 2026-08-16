@@ -1,91 +1,88 @@
-function ColorMyPencils(color)
-	color = color or "default"
-	vim.cmd.colorscheme(color)
+local function load_cinnamoroll()
+    -- 1. Strip all existing themes and highlights
+    vim.cmd("hi clear")
+    if vim.fn.exists("syntax_on") then
+        vim.cmd("syntax reset")
+    end
+    
+    -- Name your masterpiece
+    vim.g.colors_name = "cinnamoroll"
 
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    -- 2. The Expanded Luminous Palette
+    local c = {
+        none          = "NONE",
+        white         = "#FFFFFF",
+        fg            = "#F0F8FF", -- Bright Alice Blue for standard text
+        
+        -- Blues
+        blue_light    = "#D0E8F9", -- Soft pastel baby blue
+        blue_bright   = "#6AC2F0", -- Saturated sky blue for high-visibility elements
+        
+        -- Pinks
+        pink_light    = "#FAD1EA", -- Soft sakura pastel
+        pink_bright   = "#F593C4", -- Saturated candy pink for accents
+        
+        -- Structural Colors
+        muted         = "#A9BDE0", -- Bright pastel periwinkle (No more dark grey!)
+        visual_bg     = "#BCE4F9", -- Bright baby blue text selection
+        visual_fg     = "#1A1B26", -- Dark text inside the selection for perfect contrast
+    }
+
+    -- 3. Apply the Colors
+    local highlights = {
+        -- UI Elements
+        Normal       = { bg = c.none, fg = c.fg },
+        NormalFloat  = { bg = c.none, fg = c.fg },
+        LineNr       = { fg = c.muted },
+        CursorLineNr = { fg = c.pink_bright, bold = true },
+        Visual       = { bg = c.visual_bg, fg = c.visual_fg }, -- Bright background, dark text
+        Cursor       = { bg = c.pink_bright, fg = c.white },
+        
+        -- Fallback Syntax
+        Comment      = { fg = c.muted, italic = true },
+        String       = { fg = c.blue_light },
+        Number       = { fg = c.pink_bright },
+        Boolean      = { fg = c.pink_bright },
+        Keyword      = { fg = c.pink_light },
+        Operator     = { fg = c.muted },
+        Function     = { fg = c.blue_bright, bold = true },
+        Identifier   = { fg = c.fg },
+        
+        -- Treesitter Precision
+        ["@variable"]              = { fg = c.fg },
+        ["@variable.builtin"]      = { fg = c.pink_bright },
+        ["@variable.parameter"]    = { fg = c.blue_light },
+        ["@variable.member"]       = { fg = c.blue_light },
+        
+        ["@function"]              = { fg = c.blue_bright, bold = true },
+        ["@function.builtin"]      = { fg = c.blue_bright, bold = true },
+        ["@function.call"]         = { fg = c.blue_bright, bold = true },
+        
+        ["@keyword"]               = { fg = c.pink_light, italic = true },
+        ["@keyword.function"]      = { fg = c.pink_light },
+        ["@keyword.return"]        = { fg = c.pink_light },
+        
+        ["@string"]                = { fg = c.blue_light },
+        ["@number"]                = { fg = c.pink_bright },
+        ["@boolean"]               = { fg = c.pink_bright },
+        
+        ["@type"]                  = { fg = c.pink_light },
+        ["@type.builtin"]          = { fg = c.pink_bright },
+        
+        ["@operator"]              = { fg = c.muted },
+        ["@punctuation.bracket"]   = { fg = c.muted },
+        ["@punctuation.delimiter"] = { fg = c.muted },
+        
+        ["@module"]                = { fg = c.white },
+        ["@property"]              = { fg = c.blue_light },
+    }
+
+    -- 4. Loop through and force the editor to use them
+    for group, hl in pairs(highlights) do
+        vim.api.nvim_set_hl(0, group, hl)
+    end
 end
 
-return {
+load_cinnamoroll()
 
-    {
-        "erikbackman/brightburn.vim",
-    },
-
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        opts = {},
-        config = function()
-            ColorMyPencils()
-        end
-    },
-    {
-        "ellisonleao/gruvbox.nvim",
-        name = "gruvbox",
-        config = function()
-            require("gruvbox").setup({
-                terminal_colors = true, -- add neovim terminal colors
-                undercurl = true,
-                underline = false,
-                bold = true,
-                italic = {
-                    strings = false,
-                    emphasis = false,
-                    comments = false,
-                    operators = false,
-                    folds = false,
-                },
-                strikethrough = true,
-                invert_selection = false,
-                invert_signs = false,
-                invert_tabline = false,
-                invert_intend_guides = false,
-                inverse = true, -- invert background for search, diffs, statuslines and errors
-                contrast = "", -- can be "hard", "soft" or empty string
-                palette_overrides = {},
-                overrides = {},
-                dim_inactive = false,
-                transparent_mode = false,
-            })
-        end,
-    },
-    {
-        "folke/tokyonight.nvim",
-        config = function()
-            require("tokyonight").setup({
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-                transparent = true, -- Enable this to disable setting the background color
-                terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
-                styles = {
-                    -- Style to be applied to different syntax groups
-                    -- Value is any valid attr-list value for `:help nvim_set_hl`
-                    comments = { italic = false },
-                    keywords = { italic = false },
-                    -- Background styles. Can be "dark", "transparent" or "normal"
-                    sidebars = "dark", -- style for sidebars, see below
-                    floats = "dark", -- style for floating windows
-                },
-            })
-        end
-    },
-
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        config = function()
-            require('rose-pine').setup({
-                disable_background = true,
-                styles = {
-                    italic = false,
-                },
-            })
-
-            ColorMyPencils();
-        end
-    },
-
-
-}
+return {}

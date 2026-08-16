@@ -55,3 +55,32 @@ clipboard-read = allow
 clipboard-write = allow
 copy-on-select = clipboard
 
+# --- Cinnamoroll Cool Palette ---
+
+# Core Background / Foreground
+background = 1a1b26
+foreground = ffffff
+
+# Cursor
+cursor-color = ffb8d2
+cursor-text = 1a1b26
+
+# ANSI Colors (0-7)
+palette = 0=1a1b26
+palette = 1=ffb8d2
+palette = 2=90c4fe
+palette = 3=c0caf5
+palette = 4=90c4fe
+palette = 5=ffb8d2
+palette = 6=7dcfff
+palette = 7=ffffff
+
+# ANSI Bright Colors (8-15)
+palette = 8=565f89
+palette = 9=ffb8d2
+palette = 10=90c4fe
+palette = 11=c0caf5
+palette = 12=90c4fe
+palette = 13=ffb8d2
+palette = 14=7dcfff
+palette = 15=ffffff
