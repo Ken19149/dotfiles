@@ -85,17 +85,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* WIN_BASE (Colemak-DH + Homerow Mods + Spacebar Nav + CapsLock Num) */
     [WIN_BASE] = LAYOUT_60_ansi(
-        KC_NO,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,  CW_TOGG,
-        KC_NO,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,  KC_LBRC,  KC_RBRC,  KC_BSLS,
-        MO(_NUM),   LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_G,    KC_M,    RSFT_T(KC_N), RCTL_T(KC_E), RALT_T(KC_I), RGUI_T(KC_O),     KC_QUOT,            KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,   CW_TOGG,
+        KC_NO,   KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,  KC_LBRC,  KC_RBRC, KC_BSLS,
+        MO(_NUM),LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_G,    KC_M,    RSFT_T(KC_N), RCTL_T(KC_E), RALT_T(KC_I), RGUI_T(KC_O),     KC_QUOT,            KC_NO,
         KC_LSFT,          KC_X,    KC_C,    KC_D,    KC_V,    KC_Z,    KC_K,    KC_H,    KC_COMM, KC_DOT,   KC_SLSH,            TG(WIN_GAMING),
         KC_LCTL, KC_LWIN, KC_LALT,                                LT(_NAV, KC_SPC),                                     KC_RALT,  MO(_FN2), MO(_FN3), KC_RCTL),
 
     [_NAV] = LAYOUT_60_ansi(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        // The M N E I positions are converted to Arrow Keys
-        _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,_______, _______,          _______,
+        _______, KC_F1,  KC_F2,  KC_F3,  KC_F4,  _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,_______, _______,          _______,
         _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
         _______, _______, _______,                               _______,                                     _______, _______, _______, _______),
 
@@ -103,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NUM] = LAYOUT_60_ansi(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, KC_1,    KC_2,    KC_3,    KC_MINS, _______, _______, _______,
-        _______, KC_LBRC, KC_RBRC, KC_QUOT, _______, _______, _______, KC_4,    KC_5,    KC_6,    KC_0,    KC_EQL,           _______,
+        _______, KC_LBRC, KC_RBRC, KC_QUOT, KC_GRV,  _______, _______, KC_4,    KC_5,    KC_6,    KC_0,    KC_EQL,           _______,
         _______,          _______, _______, _______, _______, _______, _______, KC_7,    KC_8,    KC_9,    KC_SLSH,          _______,
         _______, _______, _______,                               _______,                                     _______, _______, _______, _______),
 
