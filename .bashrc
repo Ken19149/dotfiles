@@ -42,3 +42,5 @@ case ":$PATH:" in
 esac
 # pnpm end
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
+alias deploy-limine='sudo cp ~/.config/limine/limine.conf /boot/limine.conf'
