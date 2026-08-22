@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 --[[
 vim.keymap.set("n", "m", "h") -- left
@@ -44,3 +45,6 @@ vim.keymap.set("v", "h", "<Nop>")
 vim.keymap.set("v", "j", "<Nop>")
 vim.keymap.set("v", "k", "<Nop>")
 vim.keymap.set("v", "l", "<Nop>")
+
+-- type ddate will turn to today's date
+vim.cmd([[iabbrev ddate <C-R>=strftime("%Y-%m-%d")<CR>]])

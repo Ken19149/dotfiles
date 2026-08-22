@@ -6,11 +6,20 @@ return {
   
   -- Define your keymaps here! Lazy will automatically load them.
   keys = {
-    { "<leader>on", ":ObsidianNew ", desc = "Obsidian New Note" },
-    { "<leader>ot", ":ObsidianTemplate note-template<CR>", desc = "Obsidian Insert Template" },
-    { "<leader>os", ":ObsidianSearch<CR>", desc = "Obsidian Search" },
+    -- Core Navigation
+    { "<leader>on", ":ObsidianNew ", desc = "New Zettelkasten Note" },
+    { "<leader>ot", ":ObsidianToday<CR>", desc = "Open/Create Daily Note" },
+    { "<leader>of", ":ObsidianSearch<CR>", desc = "Search Obsidian Vault" },
+    { "<leader>or", ":ObsidianRename ", desc = "Search Obsidian Vault" },
+    
+    -- Template Injections
+    { "<leader>od", ":ObsidianTemplate daily-template<CR>", desc = "Insert Daily Template" },
+    { "<leader>oc", ":ObsidianTemplate concept-template<CR>", desc = "Insert Concept Template" },
+    { "<leader>os", ":ObsidianTemplate source-template<CR>", desc = "Insert Source Template" },
+    { "<leader>op", ":ObsidianTemplate project-template<CR>", desc = "Insert Project Template" },
+    { "<leader>oa", ":ObsidianTemplate area-template<CR>", desc = "Insert Area Template" },
   },
-  
+
   -- Loads obsidian.nvim only for markdown files in your vault
   event = {
     "BufReadPre " .. vim.fn.expand "~" .. "/vault/**.md",
@@ -101,4 +110,10 @@ return {
       min_chars = 2,
     },
   },
+
+    config = function(_, opts)
+    require("obsidian").setup(opts)
+    -- Enable conceal so the plugin can render your custom UI colors
+    vim.opt.conceallevel = 1
+  end,
 }
