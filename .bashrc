@@ -47,3 +47,7 @@ alias deploy-limine='sudo cp ~/.config/limine/limine.conf /boot/limine.conf'
 
 eval "$(zoxide init bash)"
 
+export PATH="${HOME}/.local/bin:${PATH}"
+alias iai='~/.local/share/iai-pme/.venv/bin/iai'
+
+export EDITOR="nvim"

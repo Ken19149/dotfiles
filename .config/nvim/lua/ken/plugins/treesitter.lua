@@ -55,7 +55,7 @@ return {
                     if ok and stats and stats.size > max_filesize then
                         vim.notify(
                             "File larger than 100KB treesitter disabled for performance",
-                            vim.log.levels.WARN,
+                            -- vim.log.levels.WARN,
                             {title = "Treesitter"}
                         )
                         return true

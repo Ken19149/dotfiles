@@ -47,20 +47,20 @@ return {
     },
 
     -- 1. Force new notes into your permanent Zettelkasten folder
-    notes_subdir = "research/6-notes",
+    notes_subdir = "3-research/6-notes",
     
     -- 2. Tell the plugin to STOP auto-generating frontmatter so your template works
     disable_frontmatter = true,
     
     -- 3. Configure where your daily "fleeting/scratchpad" notes go
     daily_notes = {
-      folder = "research/1-inbox",
+      folder = "3-research/1-inbox",
       date_format = "%Y-%m-%d",
     },
     
     -- 4. Tell it where your templates live
     templates = {
-      folder = "research/5-templates",
+      folder = "3-research/5-templates",
       date_format = "%Y-%m-%d",
       time_format = "%H:%M",
     },
