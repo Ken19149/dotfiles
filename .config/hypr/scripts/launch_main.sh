@@ -6,10 +6,11 @@ if ! tmux has-session -t main 2>/dev/null; then
     tmux new-session -d -s main -n "home"
     
     # Create window 2 for your Proxmox server SSH
-    tmux new-window -t main:2 -n "server" "ssh omniscientlab"
+    # tmux new-window -t main:2 -n "server" "ssh omniscientlab"
+    tmux new-window -t main:2 -n "note" "nvim -c ObsidianToday"
     
     # Create window 3 for file exploration
-    tmux new-window -t main:3 -n "files"
+    tmux new-window -t main:3 -n "files" "yazi"
     
     # Set the focus back to window 1 so you start on your scratchpad
     tmux select-window -t main:1

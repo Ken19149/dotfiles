@@ -9,3 +9,7 @@
 
 // 3. Prevents "st" from becoming "Shift" when typing fast repeated letters
 #define QUICK_TAP_TERM 0
+
+// 4. Reduces the window (in ms) where two keys count as a combo.
+// Default is 50ms. Dropping to 25-30ms filters out fast typing rolls.
+#define COMBO_TERM 25

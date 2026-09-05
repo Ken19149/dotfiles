@@ -51,3 +51,5 @@ export PATH="${HOME}/.local/bin:${PATH}"
 alias iai='~/.local/share/iai-pme/.venv/bin/iai'
 
 export EDITOR="nvim"
+
+alias flash-v4="qmk flash -kb keychron/v4/ansi -km Ken19149"
