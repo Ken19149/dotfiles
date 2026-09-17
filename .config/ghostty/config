@@ -48,7 +48,7 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-background-opacity = 0
+background-opacity = 0.60
 theme = /usr/share/ghostty/themes/12-bit Rainbow
 
 clipboard-read = allow
@@ -58,7 +58,8 @@ copy-on-select = clipboard
 # --- Cinnamoroll Cool Palette ---
 
 # Core Background / Foreground
-background = 1a1b26
+# background = 1a1b26
+background = 222244
 foreground = b5c1dd
 
 # Cursor
