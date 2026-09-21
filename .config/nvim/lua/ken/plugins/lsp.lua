@@ -26,6 +26,9 @@ return {
 				},
 				sources = {
 					default = { "lsp", "path", "snippets", "buffer" },
+					per_filetype = {
+						markdown = { "snippets", "buffer", "path" },
+					},
 				},
 			},
 		},

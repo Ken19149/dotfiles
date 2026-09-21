@@ -10,3 +10,5 @@ vim.opt.expandtab = true
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+vim.opt.conceallevel = 2

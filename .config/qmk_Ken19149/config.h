@@ -1,15 +1,18 @@
 #pragma once
 
-// 1. How long (ms) to hold a key for it to become Shift/Ctrl/etc.
-// Start with 200. If you type fast and get accidental mods, lower it to 160.
+// 1. Tapping Term for Mod-Taps and Tap Dance (ms)
 #define TAPPING_TERM 160
 
-// 2. Makes modifiers trigger faster when typing chords (essential for home row mods)
-#define PERMISSIVE_HOLD
+// 2. Prevent fast overlapping alpha rolls from accidentally becoming modifiers
+// (Essential for fast Colemak-DH typing)
+#undef PERMISSIVE_HOLD
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
-// 3. Prevents "st" from becoming "Shift" when typing fast repeated letters
+// 3. Streak protection for Achordion
+#define ACHORDION_STREAK
+
+// 4. Quick tap term: prevents double-tapping a mod-tap from repeating the hold
 #define QUICK_TAP_TERM 0
 
-// 4. Reduces the window (in ms) where two keys count as a combo.
-// Default is 50ms. Dropping to 25-30ms filters out fast typing rolls.
+// 5. Window for chording Combos (W+F, F+P, R+S, etc.)
 #define COMBO_TERM 25
