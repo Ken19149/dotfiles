@@ -19,7 +19,7 @@ nvim --version
 ```
 
 clear old config
-'''
+```
 rm -rf ~/.local/share/nvim/lazy
 rm -rf ~/.local/state/nvim
 nvim
