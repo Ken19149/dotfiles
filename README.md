@@ -2,7 +2,8 @@ nvim for debian commands
 install required tools for the config
 ```
 sudo apt update
-sudo apt install -y nodejs npm build-essential git curl unzip tar python3-venv```
+sudo apt install -y nodejs npm build-essential git curl unzip tar python3-venv
+```
 
 install new version of nvim
 ```
