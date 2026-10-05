@@ -109,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, KC_NO, KC_6, KC_5, KC_4, KC_MINS,
         _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, KC_PLUS, KC_1, KC_2, KC_3, KC_EQL, KC_0, _______, _______,
+        _______, KC_EQL, KC_1, KC_2, KC_3, KC_0, KC_PLUS, _______, _______,
         _______, _______, _______, _______, _______, KC_ASTR, KC_7, KC_8, KC_9,
         KC_BSLS, _______, _______, _______, _______, _______, _______, _______,
         _______, _______),
@@ -208,6 +208,19 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
   }
 }
 
+// =============================================
+// ACHORDION HAND SPLIT OVERRIDE
+// =============================================
+// Renamed to avoid collision with achordion.c's built-in definition
+bool v4_opposite_hands(const keyrecord_t *tap_hold_record,
+                       const keyrecord_t *other_record) {
+  // Columns 0–5 are Left Hand; Columns 6–13 are Right Hand.
+  // Overrides default (col < 7) which misclassified Col 6 (Colemak J, M, K) as
+  // Left Hand.
+  return (tap_hold_record->event.key.col <= 5) !=
+         (other_record->event.key.col <= 5);
+}
+
 // Chord resolution rules
 bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
                      uint16_t other_keycode, keyrecord_t *other_record) {
@@ -219,11 +232,11 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
 
   // 2. Allow Shift keys (T and N) to chord with opposite hand immediately
   if (tap_hold_keycode == LSFT_T(KC_T) || tap_hold_keycode == RSFT_T(KC_N)) {
-    return achordion_opposite_hands(tap_hold_record, other_record);
+    return v4_opposite_hands(tap_hold_record, other_record);
   }
 
   // 3. Strict opposite-hand rule for Home Row Mods (Ctrl, Alt, Gui)
-  return achordion_opposite_hands(tap_hold_record, other_record);
+  return v4_opposite_hands(tap_hold_record, other_record);
 }
 
 // Tri-Layer: When Caps Lock (_NUM) AND Spacebar (_NAV) are held -> Activate
