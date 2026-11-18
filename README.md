@@ -9,8 +9,8 @@ install new version of nvim
 ```
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz
 
-rm -rf /opt/nvim-linux-x86_64
-tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
 
 ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
 ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/bin/nvim

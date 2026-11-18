@@ -31,7 +31,7 @@ alias upgrade-all="yay -Syu && hyprpm update && nvim --headless '+Lazy! sync' +q
 
 alias clock='clocktemp -tf 24'
 
-export HYPRSHOT_DIR="/path/to/your/folder"
+export HYPRSHOT_DIR="~/Pictures/Screenshots"
 
 
 # pnpm
@@ -54,3 +54,5 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 alias flash-v4="qmk flash -kb keychron/v4/ansi -km Ken19149"
+
+. /usr/share/nvm/init-nvm.sh

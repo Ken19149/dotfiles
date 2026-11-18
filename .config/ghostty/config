@@ -49,6 +49,7 @@
 # resize-overlay-duration = 4s 200ms
 
 background-opacity = 0.60
+# background-opacity = 0.30
 theme = /usr/share/ghostty/themes/12-bit Rainbow
 
 clipboard-read = allow

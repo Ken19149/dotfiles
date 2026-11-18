@@ -225,17 +225,24 @@ bool v4_opposite_hands(const keyrecord_t *tap_hold_record,
 bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
                      uint16_t other_keycode, keyrecord_t *other_record) {
 
-  // 1. Spacebar Nav layer always works immediately
+  // 1. Spacebar Nav layer always works immediately when held
   if (tap_hold_keycode == LT(_NAV, KC_SPC)) {
     return true;
   }
 
-  // 2. Allow Shift keys (T and N) to chord with opposite hand immediately
+  // 2. FIX: Allow any modifier (Left or Right hand) to chord with Spacebar
+  // (Prevents Achordion from blocking Super+Space for Wofi and Alt+Space for
+  // language switch)
+  if (other_keycode == LT(_NAV, KC_SPC) || other_keycode == KC_SPC) {
+    return true;
+  }
+
+  // 3. Allow Shift keys (T and N) to chord with opposite hand immediately
   if (tap_hold_keycode == LSFT_T(KC_T) || tap_hold_keycode == RSFT_T(KC_N)) {
     return v4_opposite_hands(tap_hold_record, other_record);
   }
 
-  // 3. Strict opposite-hand rule for Home Row Mods (Ctrl, Alt, Gui)
+  // 4. Strict opposite-hand rule for all other Home Row Mods (Ctrl, Alt, Gui)
   return v4_opposite_hands(tap_hold_record, other_record);
 }
 
